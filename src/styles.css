@@ -158,7 +158,7 @@ select {
 
 .hero {
   position: relative;
-  min-height: 88svh;
+  min-height: clamp(520px, 40vw, 720px);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -171,18 +171,18 @@ select {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.018);
-  transform-origin: left center;
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+  transform-origin: center center;
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(9, 14, 16, 0.92) 0%, rgba(9, 14, 16, 0.58) 42%, rgba(9, 14, 16, 0.18) 100%),
-    linear-gradient(0deg, rgba(9, 14, 16, 0.84) 0%, rgba(9, 14, 16, 0) 55%);
+    linear-gradient(180deg, rgba(5, 9, 11, 0.36) 0%, rgba(5, 9, 11, 0.28) 42%, rgba(5, 9, 11, 0.88) 100%),
+    linear-gradient(90deg, rgba(5, 9, 11, 0.42) 0%, rgba(5, 9, 11, 0.22) 50%, rgba(5, 9, 11, 0.42) 100%);
 }
 
 .hero-content {
@@ -190,7 +190,7 @@ select {
   z-index: 1;
   width: min(1220px, calc(100% - 36px));
   margin: 0 auto;
-  padding: 146px 0 72px;
+  padding: 96px 0 48px;
 }
 
 .venue,
@@ -226,23 +226,27 @@ p {
 
 h1 {
   width: min(1220px, 100%);
-  margin: 0 0 32px;
+  margin: 0 auto 32px;
   font-size: clamp(2.35rem, 4.55vw, 4.45rem);
   line-height: 1.02;
   font-weight: 820;
+  text-align: center;
+  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.72);
 }
 
 .title-line {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .authors {
   width: min(960px, 100%);
-  margin: 0;
+  margin: 0 auto;
   color: rgba(255, 255, 255, 0.84);
   font-size: clamp(1rem, 2vw, 1.22rem);
   line-height: 1.65;
+  text-align: center;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.72);
 }
 
 .authors a {
@@ -267,14 +271,16 @@ h1 {
 .affiliations {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 9px 22px;
   width: min(980px, 100%);
-  margin: 20px 0 0;
+  margin: 20px auto 0;
   padding: 0;
   list-style: none;
   color: rgba(255, 255, 255, 0.74);
   font-size: clamp(0.94rem, 1.52vw, 1.08rem);
   line-height: 1.5;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.72);
 }
 
 .affiliations li {
@@ -295,9 +301,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: clamp(20px, 3vw, 38px);
   width: min(980px, 100%);
-  margin-top: 28px;
+  margin: 28px auto 0;
 }
 
 .institution-logo {
@@ -317,12 +324,12 @@ h1 {
 
 .publication-venue {
   width: min(980px, 100%);
-  margin: 26px 0 0;
+  margin: 26px auto 0;
   color: rgba(255, 255, 255, 0.9);
   font-size: clamp(1.05rem, 1.7vw, 1.42rem);
   font-weight: 820;
   line-height: 1.35;
-  text-align: left;
+  text-align: center;
   text-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
 }
 
@@ -330,10 +337,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   width: min(980px, 100%);
-  margin-top: 18px;
+  margin: 18px auto 0;
 }
 
 .link-block {
@@ -478,15 +485,16 @@ h1 {
   }
 
   .hero-content {
-    --hero-gutter: clamp(260px, 13.8vw, 330px);
-    --hero-meta-shift: clamp(34px, 4.6svh, 52px);
-    width: min(1420px, calc(100% - var(--hero-gutter) - 56px));
-    margin: 0 56px 0 var(--hero-gutter);
-    padding: clamp(128px, 14svh, 180px) 0 0;
+    --hero-meta-shift: clamp(12px, 2.2svh, 28px);
+    width: min(1420px, calc(100% - 112px));
+    margin: 0 auto;
+    padding: clamp(88px, 8svh, 122px) 0 0;
   }
 
   h1 {
     width: min(1420px, 100%);
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 38px;
     font-size: clamp(4.55rem, 3.35vw, 5.25rem);
   }
@@ -542,6 +550,7 @@ h1 {
 .overview-notes,
 .pipeline-figure,
 .results-grid,
+.deployment-list,
 .paired-demo-list,
 .completion-layout,
 .citation {
@@ -796,6 +805,19 @@ figcaption strong {
 .method-section,
 .results-section {
   background: #fff;
+}
+
+.results-section .section-heading {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.results-section .section-heading .kicker {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .overview-section {
@@ -1147,6 +1169,85 @@ select {
 
 .results-grid.single figure {
   width: 100%;
+}
+
+.deployment-list {
+  display: grid;
+  gap: clamp(38px, 5vw, 64px);
+  width: min(var(--content-width), 100%);
+}
+
+.deployment-group {
+  display: grid;
+  gap: 18px;
+}
+
+.deployment-group h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.36rem, 1.8vw, 1.92rem);
+  line-height: 1.18;
+  font-weight: 800;
+  text-align: center;
+}
+
+.deployment-grid {
+  display: grid;
+  justify-content: center;
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.deployment-grid.two-column {
+  grid-template-columns: repeat(2, minmax(0, 480px));
+}
+
+.deployment-grid.single-column {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(620px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deployment-video {
+  width: 100%;
+  margin: 0;
+}
+
+.deployment-video h4 {
+  min-height: 1.6rem;
+  margin: 0 0 0.6rem;
+  color: var(--ink-2);
+  font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+  line-height: 1.35;
+  font-weight: 760;
+  text-align: center;
+}
+
+.deployment-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 8.8;
+  overflow: hidden;
+  border: 1px solid rgba(217, 223, 220, 0.7);
+  border-radius: 8px;
+  background: #111827;
+  box-shadow: 0 14px 42px rgba(39, 50, 59, 0.07);
+}
+
+.deployment-video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #111827;
+}
+
+.deployment-video figcaption {
+  min-height: 1.5rem;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 0.95vw, 0.98rem);
+  line-height: 1.35;
+  text-align: center;
 }
 
 .gallery-section {
@@ -1689,6 +1790,11 @@ select {
     padding: 16px 18px;
   }
 
+  .deployment-grid.two-column {
+    grid-template-columns: minmax(0, 620px);
+    justify-content: center;
+  }
+
   .pipeline-image-wrap {
     padding-bottom: 58px;
   }
@@ -1732,7 +1838,7 @@ select {
   }
 
   .hero {
-    min-height: 86svh;
+    min-height: clamp(520px, 76svh, 680px);
   }
 
   .hero-content {
@@ -1754,8 +1860,8 @@ select {
 
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(9, 14, 16, 0.9), rgba(9, 14, 16, 0.46)),
-      linear-gradient(0deg, rgba(9, 14, 16, 0.9) 0%, rgba(9, 14, 16, 0.18) 70%);
+      linear-gradient(180deg, rgba(5, 9, 11, 0.52) 0%, rgba(5, 9, 11, 0.3) 38%, rgba(5, 9, 11, 0.9) 100%),
+      linear-gradient(90deg, rgba(5, 9, 11, 0.48), rgba(5, 9, 11, 0.22));
   }
 
   .hero-actions {

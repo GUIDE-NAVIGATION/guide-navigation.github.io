@@ -39,6 +39,12 @@
 
     <main id="top">
       <section class="hero" aria-label="GUIDE overview">
+        <img
+          class="hero-media"
+          src="public/assets/figures/hero_image_final.png"
+          alt=""
+          aria-hidden="true"
+        />
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content">
           <h1>
@@ -50,7 +56,7 @@
             Jin Jin<sup>3</sup>,
             <a href="https://drunkbot.github.io/" target="_blank" rel="noreferrer">KanZhong Yao</a><sup>2</sup>,
             YiBin Wu<sup>3</sup>,
-            Fangqiang Ding<sup>4</sup>,
+            <a href="https://toytiny.github.io/" target="_blank" rel="noreferrer">Fangqiang Ding</a><sup>4</sup>,
             Jin Wang<sup>3</sup>,
             <a href="https://person.zju.edu.cn/0094198" target="_blank" rel="noreferrer">Jun Wu</a><sup>1</sup>,
             <a href="https://iopen.nwpu.edu.cn/info/1251/5226.htm" target="_blank" rel="noreferrer">Zhe Sun</a><sup>2</sup>,
@@ -71,10 +77,6 @@
             <p>Abstract</p>
           </aside>
           <div class="abstract-main">
-            <h2>
-              <span>Goal-initialized visual navigation</span>
-              <span>without streaming goal updates.</span>
-            </h2>
             <div class="abstract-copy">
               <p>
                 Learning-based visual navigation for legged robots typically
@@ -158,13 +160,23 @@
           <p class="kicker">Pipeline</p>
           <h2>End-to-end visual navigation framework.</h2>
         </div>
-        <div class="overview-copy overview-copy-secondary">
-          <p>
-            This section will present the GUIDE training and inference pipeline.
-            Replace this placeholder with the final framework figure and a short
-            caption once the non-blind assets are ready.
-          </p>
-        </div>
+        <figure class="wide-figure">
+          <img
+            src="public/assets/figures/pipeline.png"
+            alt="Overview of the GUIDE framework."
+          />
+          <figcaption>
+            <strong>Pipeline of the GUIDE framework.</strong>
+            Multi-frequency proprioceptive history is processed into
+            proprioceptive tokens, which are supervised to predict spatial
+            anchor vectors that cultivate egomotion and directional awareness.
+            Concurrently, depth buffers are encoded and fused with these tokens
+            via cross-attention to yield spatial latents. Finally, the actor
+            aggregates these representations with the latest proprioceptive
+            state to produce twist commands. All modules are jointly optimized
+            end-to-end from scratch.
+          </figcaption>
+        </figure>
       </section>
 
       <section class="section method-section pipeline-one-section" id="simulation">
@@ -188,14 +200,142 @@
       <section class="section results-section" id="real-world">
         <div class="section-heading compact">
           <p class="kicker">Real-world</p>
-          <h2>Real-world deployments.</h2>
         </div>
-        <div class="overview-copy overview-copy-secondary">
-          <p>
-            This section will present zero-shot real-world deployment videos and
-            observations from onboard sensing. Replace this placeholder with
-            real-world GUIDE results when the final assets are ready.
-          </p>
+        <div class="deployment-list">
+          <article class="deployment-group">
+            <h3>In-lab Evaluations</h3>
+            <div class="deployment-grid two-column">
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(1, 6.5, 0)</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/in_lab_01_maze_easy.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(6.5, 6, 0)</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/in_lab_02_maze_easy.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Clutter Goal Pos:(6.5, 6.5, 0)</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/in_lab_03_clutter_easy.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Clutter Goal Pos:(6.5, 0, 0)</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/in_lab_04_clutter_easy.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="deployment-group">
+            <h3>12m x 12m Maze</h3>
+            <div class="deployment-grid two-column">
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(13, 0, 0) Wide View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_01_view_01.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(13, 0, 0) Side View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_01_view_02.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(11.5, 0, 0) Wide View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_02_view_01.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(11.5, 0, 0) Side View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_02_view_02.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(3, 1, 0) Wide View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_03_view_01.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Maze Goal Pos:(3, 1, 0) Side View</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/maze_demo_03_view_02.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="deployment-group">
+            <h3>In-the-wild Deployments</h3>
+            <div class="deployment-grid single-column">
+              <figure class="deployment-video">
+                <h4>Office Corridors</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/wild_01_office.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Dynamic Obstacles</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/wild_02_outdoor.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+              <figure class="deployment-video">
+                <h4>Dense Vegetation</h4>
+                <div class="deployment-video-frame">
+                  <video controls playsinline preload="metadata">
+                    <source src="public/assets/videos/web/wild_03_outdoor.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>&nbsp;</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
       </section>
 
