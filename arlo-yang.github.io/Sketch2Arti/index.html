@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sketch2Arti | Project Page</title>
+    <meta
+      name="description"
+      content="Sketch2Arti: Sketch-based Articulation Modeling of CAD Objects."
+    />
+    <meta name="citation_title" content="Sketch2Arti: Sketch-based Articulation Modeling of CAD Objects" />
+    <meta name="citation_author" content="Yang, Yi" />
+    <meta name="citation_author" content="Pan, Hao" />
+    <meta name="citation_author" content="Cui, Yijing" />
+    <meta name="citation_author" content="Sheffer, Alla" />
+    <meta name="citation_author" content="Li, Changjian" />
+    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_conference_title" content="ACM SIGGRAPH 2026" />
+    <meta name="citation_arxiv_id" content="2604.25781" />
+    <meta name="citation_pdf_url" content="https://arlo-yang.github.io/Sketch2Arti/Sketch2Arti.pdf" />
+    <link rel="stylesheet" href="public/vendor/academicons/css/academicons.min.css" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script defer src="public/vendor/fontawesome/fontawesome.all.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="header-brand" href="index.html#top" aria-label="Sketch2Arti home">
+        <span class="header-wordmark">Sketch2Arti</span>
+      </a>
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="index.html#todo">To-do</a>
+        <a href="index.html#abstract">Abstract</a>
+        <a href="index.html#method">Overview</a>
+        <a href="index.html#viewer">URDF Demo</a>
+        <a href="index.html#results">Results Gallery</a>
+        <a href="index.html#gallery">Result Demo Gallery</a>
+        <a href="index.html#interior-completion">Completion</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Sketch2Arti overview">
+        <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="public/assets/figures/Sketch2Arti_icon_poster.png"
+          aria-label="Sketch2Arti sketch-based articulation modeling preview."
+        >
+          <source src="public/assets/videos/web/Sketch2Arti_web.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1>
+            <span class="title-line"><span class="project-name">Sketch2Arti</span>: Sketch-based Articulation</span>
+            <span class="title-line">Modeling of CAD Objects</span>
+          </h1>
+          <p class="authors">
+            <a href="https://arlo-yang.github.io/" target="_blank" rel="noreferrer">Yi Yang</a><sup>1,2</sup>,
+            <a href="https://haopan.github.io/" target="_blank" rel="noreferrer">Hao Pan</a><sup>2</sup>,
+            Yijing Cui<sup>2</sup>,
+            <a href="https://www.cs.ubc.ca/~sheffa/" target="_blank" rel="noreferrer">Alla Sheffer</a><sup>3</sup>,
+            <a href="https://enigma-li.github.io/" target="_blank" rel="noreferrer">Changjian Li</a><sup>1</sup>
+          </p>
+          <ol class="affiliations" aria-label="Author affiliations">
+            <li><sup>1</sup> University of Edinburgh, United Kingdom</li>
+            <li><sup>2</sup> Tsinghua University, China</li>
+            <li><sup>3</sup> University of British Columbia, Canada</li>
+          </ol>
+          <div class="institution-logos" aria-label="Institution logos">
+            <img
+              class="institution-logo edinburgh"
+              src="public/assets/logos/university-of-edinburgh.svg"
+              alt="University of Edinburgh logo"
+            />
+            <img
+              class="institution-logo tsinghua"
+              src="public/assets/logos/tsinghua-university.svg"
+              alt="Tsinghua University logo"
+            />
+            <img
+              class="institution-logo ubc"
+              src="public/assets/logos/university-of-british-columbia.svg"
+              alt="University of British Columbia logo"
+            />
+          </div>
+          <p class="publication-venue">ACM Transactions on Graphics (Proc. SIGGRAPH 2026)</p>
+          <div class="hero-actions publication-links" aria-label="Project links">
+            <span class="link-block">
+              <a class="button is-normal is-rounded is-dark" href="Sketch2Arti.pdf" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper Lite</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a class="button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2604.25781" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <span class="button is-normal is-rounded is-dark button-placeholder" aria-disabled="true" title="Coming soon">
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </span>
+            </span>
+            <span class="link-block">
+              <span class="button is-normal is-rounded is-dark button-placeholder" aria-disabled="true" title="Coming soon">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </span>
+            </span>
+            <span class="link-block">
+              <span class="button is-normal is-rounded is-dark button-placeholder" aria-disabled="true" title="Coming soon">
+                <span class="icon">
+                  <i class="far fa-images"></i>
+                </span>
+                <span>Data</span>
+              </span>
+            </span>
+            <span class="link-block">
+              <span class="button is-normal is-rounded is-dark button-placeholder" aria-disabled="true" title="Coming soon">
+                <span class="icon">
+                  <img class="hf-logo" src="public/assets/logos/huggingface.svg" alt="" aria-hidden="true" />
+                </span>
+                <span>Hugging Face</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section news-section" id="todo">
+        <div class="news-panel">
+          <p class="kicker">To-do</p>
+          <ul class="news-list" aria-label="Project news">
+            <li class="news-item">
+              <time class="news-date" datetime="2026">Before SIGGRAPH 2026</time>
+              <span>We plan to release the Sketch2Arti code and dataset before SIGGRAPH 2026.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section abstract-section" id="abstract">
+        <div class="abstract-layout">
+          <aside class="abstract-label" aria-label="Abstract">
+            <p>Abstract</p>
+          </aside>
+          <div class="abstract-main">
+            <h2>
+              <span>From quick motion sketches to</span>
+              <span>articulated CAD objects.</span>
+            </h2>
+            <div class="abstract-copy">
+              <p>
+                Articulation modeling aims to infer movable parts and their
+                motion parameters for a 3D object, enabling interactive
+                animation, simulation, and shape editing. In this paper, we
+                present <span class="project-name">Sketch2Arti</span>, the first
+                sketch-based articulation modeling system for CAD objects. Our
+                key observation is that designers naturally communicate
+                articulation intent through lightweight sketches (e.g., arrows
+                and strokes) that indicate how parts should move, yet
+                translating such sketches into articulated 3D models remains
+                largely manual.
+              </p>
+              <p>
+                <span class="project-name">Sketch2Arti</span> bridges this gap
+                by enabling users to specify articulation through simple 2D
+                sketches drawn from a chosen viewpoint. Given a CAD model and
+                user sketches, our approach automatically discovers the
+                corresponding movable parts and predicts their motion parameters,
+                allowing iterative modeling of multiple articulations on complex
+                objects with fine-grained control. Importantly,
+                <span class="project-name">Sketch2Arti</span> is trained in a
+                category-agnostic manner without requiring object category
+                information, leading to strong generalization to diverse objects
+                beyond existing articulation datasets.
+              </p>
+              <p>
+                Moreover, for shell models lacking interior structures,
+                <span class="project-name">Sketch2Arti</span> supports
+                controllable internal completion guided by user sketches,
+                generating plausible internal components consistent with the
+                existing geometry and predicted motion constraints.
+                Comprehensive experiments and user evaluations demonstrate the
+                effectiveness, controllability, and generalization of
+                <span class="project-name">Sketch2Arti</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section figure-section">
+        <figure class="wide-figure">
+          <img
+            src="public/assets/figures/teaser.png"
+            alt="Sketch2Arti teaser with sketch-guided articulations."
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <strong>Sketch-based articulation modeling.</strong>
+            We present <span class="project-name">Sketch2Arti</span>, the first
+            sketch-based system for articulation modeling of CAD objects.
+            <span class="project-name">Sketch2Arti</span> is versatile.
+            <em>Top:</em> through iterative sketch-based editing,
+            <span class="project-name">Sketch2Arti</span> progressively
+            discovers multiple movable parts and recovers their motion parameters
+            on a complex car model. <em>Middle-left:</em>
+            <span class="project-name">Sketch2Arti</span> offers high
+            controllability, e.g., a car door can be opened in different
+            user-specified manners (standard, backward-hinged, or butterfly) by
+            simply changing the sketches. <em>Middle-right:</em>
+            <span class="project-name">Sketch2Arti</span> generalizes to
+            diverse objects beyond public datasets, enabling articulation
+            modeling for unseen categories. <em>Bottom:</em> for shell models
+            lacking internal structures, users can sketch the missing components
+            (e.g., the teddy bear) and <span class="project-name">Sketch2Arti</span>
+            faithfully generates plausible internal mechanisms that respect both
+            the existing geometry and the predicted articulation parameters.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section method-section overview-section" id="method">
+        <div class="section-heading overview-heading">
+          <p class="kicker">Overview</p>
+          <h2>Where / How / What</h2>
+        </div>
+        <div class="overview-copy">
+          <p>
+            <span class="project-name">Sketch2Arti</span> addresses three
+            coupled challenges in sketch-based articulation modeling: 1)
+            locating the movable part, 2) estimating its motion, and 3)
+            completing hidden geometry exposed by articulation.
+          </p>
+        </div>
+        <div class="overview-notes" aria-label="Where, how, and what">
+          <article class="overview-note">
+            <p class="note-label">Where</p>
+            <p>
+              Predict a movable-part mask from the sketch region and select the
+              corresponding 3D component through hierarchical segmentation.
+            </p>
+          </article>
+          <article class="overview-note">
+            <p class="note-label">How</p>
+            <p>
+              Estimate joint type and motion parameters from local sketch,
+              depth, and normal cues, then refine them geometrically.
+            </p>
+          </article>
+          <article class="overview-note">
+            <p class="note-label">What</p>
+            <p>
+              Generate missing internal structure when articulation reveals an
+              empty shell, while preserving existing geometry and motion
+              constraints.
+            </p>
+          </article>
+        </div>
+        <figure class="pipeline-figure system-pipeline">
+          <div class="pipeline-image-wrap">
+            <img
+              src="public/assets/figures/pipeline.png"
+              alt="Sketch2Arti system overview pipeline."
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="pipeline-stage-labels" aria-hidden="true">
+              <span><em>(a)</em> Input</span>
+              <span><em>(b)</em> Articulated object</span>
+              <span><em>(c)</em> Interior sketching</span>
+              <span><em>(d)</em> Completed object</span>
+            </div>
+          </div>
+          <figcaption>
+            <strong>Overview.</strong>
+            <em>(a)</em> Given an input 3D shape and the user sketches, our
+            method <span class="project-name">Sketch2Arti</span> addresses the
+            <em>where</em> and <em>how</em> challenges by <em>(b)</em>
+            identifying movable parts (i.e., the two doors) and inferring their
+            articulation parameters. <em>(c)</em> The predicted motion reveals
+            missing internal structure (e.g., an empty drawer), which users can
+            further specify via sketches.
+            <span class="project-name">Sketch2Arti</span> then tackles the
+            <em>what</em> challenge by <em>(d)</em> generating the full drawer
+            geometry while adhering to both the existing shape and the inferred
+            articulation.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section method-section pipeline-one-section" id="pipeline1">
+        <div class="section-heading compact">
+          <p class="kicker">Pipeline 1</p>
+          <h2>Sketch-based articulation analysis.</h2>
+        </div>
+        <div class="overview-copy overview-copy-secondary">
+          <p>
+            Pipeline 1 reconstructs the intended movable part and its
+            articulation parameters from rough motion sketches. The input is a
+            localized crop around the sketch, represented by sketch, depth, and
+            surface-normal maps.
+          </p>
+          <p>
+            A UNet-based recognizer predicts image-space part evidence, joint
+            type, pivot cues, and 3D motion direction. The part mask is matched
+            to a 3D component with Partfield features, and the recovered motion
+            is snapped to meaningful geometric anchors for physical plausibility.
+          </p>
+        </div>
+        <figure class="pipeline-figure prediction-pipeline">
+          <img
+            src="public/assets/figures/prediction_pipeline.png"
+            alt="Sketch2Arti articulation prediction pipeline."
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <strong>Articulation prediction.</strong>
+            Given a static 3D object, we apply category-agnostic articulation
+            recognition on a localized region surrounding the sketch with the
+            local context captured by the depth and normal maps. A trained U-Net
+            module predicts the articulation parameters in 2D maps and 3D local
+            camera coordinates, as well as motion type. The 2D part mask is then
+            back-projected onto the object surface and used to filter through a
+            hierarchy of segments produced by a foundation Partfield model, to
+            select the best matching part at a level undetermined beforehand as
+            the movable 3D component.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section viewer-section" id="viewer">
+        <div class="section-heading compact">
+          <p class="kicker">Interactive URDF Demo</p>
+          <h2>Drag the articulated parts and inspect the predicted joints.</h2>
+        </div>
+
+        <div class="demo-grid">
+          <div class="viewer-shell" aria-label="Interactive URDF viewer">
+            <div class="viewer-toolbar">
+              <label class="viewer-model-select">
+                <span class="select-label">Model</span>
+                <select id="case-select" aria-label="Select URDF model"></select>
+              </label>
+              <button class="tool-button" id="reset-camera" type="button">Reset View</button>
+              <button class="tool-button" id="reset-joints" type="button">Reset Joints</button>
+              <button class="tool-button active" id="toggle-autoplay" type="button">Auto Animation</button>
+            </div>
+            <div class="canvas-wrap">
+              <span class="panel-label">URDF Animation</span>
+              <canvas id="urdf-canvas" aria-label="3D articulated model viewer"></canvas>
+              <div class="viewer-status" id="viewer-status">Loading URDF...</div>
+            </div>
+            <div class="viewer-hint">
+              <span id="selected-joint">Select or drag a colored part.</span>
+              <span>Orbit with empty-space drag. Scroll to zoom.</span>
+            </div>
+          </div>
+
+          <aside class="control-panel" aria-label="Joint controls">
+            <div class="panel-title">
+              <h3>Joint Controls</h3>
+              <p>Drag a part in the viewer or tune individual joints.</p>
+            </div>
+            <div id="joint-controls" class="joint-controls"></div>
+          </aside>
+
+          <article class="case-video">
+            <div class="case-video-media">
+              <span class="panel-label">Video Recording</span>
+              <video
+                autoplay
+                controlslist="nodownload nofullscreen noremoteplayback"
+                disablepictureinpicture
+                disableremoteplayback
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="public/assets/posters/car_example_1.jpg"
+                id="case-video"
+              >
+                <source src="public/assets/videos/web/car_example_1_web.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div>
+              <p class="eyebrow">Demo Video</p>
+              <h3 id="case-video-title">Car articulation sketch record</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section results-section" id="results">
+        <div class="section-heading compact">
+          <p class="kicker">Results Gallery</p>
+          <h2>Generalization and controllability.</h2>
+        </div>
+        <div class="results-grid single">
+          <figure>
+            <img
+              src="public/assets/figures/gallery.png"
+              alt="Sketch2Arti result gallery."
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <strong>Results gallery.</strong>
+              We show representative articulation modeling sessions using
+              <span class="project-name">Sketch2Arti</span>. For each example,
+              user sketches are overlaid on the rendered shape under the chosen
+              viewpoint, and the inferred movable parts are color-coded. The
+              black arrow indicates the iterative modeling order across
+              views/parts.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section gallery-section" id="gallery">
+        <div class="section-heading compact">
+          <p class="kicker">Result Demo Gallery</p>
+          <h2>More demo results.</h2>
+        </div>
+        <div class="paired-demo-list" id="video-gallery"></div>
+      </section>
+
+      <section class="section completion-section" id="interior-completion">
+        <div class="section-heading compact">
+          <p class="kicker">Interior Completion</p>
+          <h2>Completing internal structures<br />for functional articulation.</h2>
+        </div>
+        <div class="completion-layout">
+          <div class="completion-copy">
+            <p>
+              Most existing assets within datasets or synthesized by generative
+              models represent objects as surface-only models, containing only
+              the geometry visible in a canonical static pose. Kinematic
+              articulation exposes physical voids in regions that were
+              previously occluded, rendering the object unsuitable for realistic
+              physical interaction.
+            </p>
+            <p>
+              To resolve this incompleteness, we articulate the object to its
+              open state, generate a completed 2D reference image for the exposed
+              interior, and then lift that reference into 3D while preserving the
+              existing shell and respecting the predicted articulation.
+            </p>
+          </div>
+
+          <figure class="completion-method pipeline-figure">
+            <img
+              src="public/assets/figures/interior_completion_pipeline.png"
+              alt="Interior shape completion pipeline."
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <strong>Interior shape completion.</strong>
+              Our approach leverages 2D and 3D generative models to complete the
+              interior structures exposed by articulated parts. Given a 3D object
+              with recognized articulation part and parameters, the top branch
+              applies a 2D generative model (e.g., Nano Banana) to obtain a
+              high-quality reference image, which is used to guide the 3D
+              generative model (e.g., Trellis) to create the interior structure.
+              Crucially for obtaining structure-preserving interiors, masks of
+              loose and strict types are built to control the flow generative
+              process of the 3D generative model and adjust the completed part
+              interior, respectively. Finally, the completed part is refined for
+              kinematic validity and turned into separate meshes that are
+              readily usable as URDF models.
+            </figcaption>
+          </figure>
+
+          <article class="paired-demo-row featured-completion">
+            <div class="paired-video-panel" data-case-id="drawer_interior_completion">
+              <span class="panel-label">Video Recording</span>
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="public/assets/posters/drawer_interior_completion.jpg"
+              >
+                <source
+                  src="public/assets/videos/web/drawer_interior_completion_web.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <div class="urdf-preview-card" aria-label="Interior completion URDF viewer area">
+              <div class="embedded-viewer-canvas-wrap">
+                <span class="panel-label">URDF Animation</span>
+                <canvas
+                  class="embedded-urdf-canvas"
+                  data-embedded-urdf
+                  data-case-id="drawer_interior_completion"
+                  aria-label="Interior completion drawer URDF viewer"
+                ></canvas>
+                <div class="mini-viewer-status">Preparing URDF preview...</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section citation-section" id="citation">
+        <div class="section-heading compact">
+          <p class="kicker">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+        <p class="citation-note">
+          If you find our work useful for your research, please consider citing our paper.
+        </p>
+        <pre class="citation"><code>@article{yang2026sketch2arti,
+  title = {<span class="project-name">Sketch2Arti</span>: Sketch-based Articulation Modeling of CAD Objects},
+  author = {Yang, Yi and Pan, Hao and Cui, Yijing and Sheffer, Alla and Li, Changjian},
+  journal = {ACM Transactions on Graphics},
+  volume = {45},
+  number = {4},
+  year = {2026},
+  doi = {10.1145/3811375}
+}</code></pre>
+      </section>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

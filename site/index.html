@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUIDE | Project Page</title>
+    <meta
+      name="description"
+      content="GUIDE: Goal-Initialized Directional Understanding for End-to-End Visual Navigation."
+    />
+    <meta name="citation_title" content="GUIDE: Goal-Initialized Directional Understanding for End-to-End Visual Navigation" />
+    <meta name="citation_author" content="Wang, Liang" />
+    <meta name="citation_author" content="Jin, Jin" />
+    <meta name="citation_author" content="Yao, KanZhong" />
+    <meta name="citation_author" content="Wu, YiBin" />
+    <meta name="citation_author" content="Ding, Fangqiang" />
+    <meta name="citation_author" content="Wang, Jin" />
+    <meta name="citation_author" content="Wu, Jun" />
+    <meta name="citation_author" content="Sun, Zhe" />
+    <meta name="citation_author" content="Zhu, Qiuguo" />
+    <meta name="citation_publication_date" content="2026" />
+    <link rel="stylesheet" href="public/vendor/academicons/css/academicons.min.css" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script defer src="public/vendor/fontawesome/fontawesome.all.min.js"></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="header-brand" href="index.html#top" aria-label="GUIDE home">
+        <span class="header-wordmark">GUIDE</span>
+      </a>
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="index.html#abstract">Abstract</a>
+        <a href="index.html#overview">Overview</a>
+        <a href="index.html#pipeline">Pipeline</a>
+        <a href="index.html#simulation">Simulation</a>
+        <a href="index.html#real-world">Real-world</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="GUIDE overview">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1>
+            <span class="title-line"><span class="project-name">GUIDE</span>: Goal-Initialized Directional Understanding</span>
+            <span class="title-line">for End-to-End Visual Navigation</span>
+          </h1>
+          <p class="authors">
+            <a href="https://myoooofall.github.io/" target="_blank" rel="noreferrer">Liang Wang</a><sup>1,2</sup>,
+            Jin Jin<sup>3</sup>,
+            <a href="https://drunkbot.github.io/" target="_blank" rel="noreferrer">KanZhong Yao</a><sup>2</sup>,
+            YiBin Wu<sup>3</sup>,
+            Fangqiang Ding<sup>4</sup>,
+            Jin Wang<sup>3</sup>,
+            <a href="https://person.zju.edu.cn/0094198" target="_blank" rel="noreferrer">Jun Wu</a><sup>1</sup>,
+            <a href="https://iopen.nwpu.edu.cn/info/1251/5226.htm" target="_blank" rel="noreferrer">Zhe Sun</a><sup>2</sup>,
+            <a href="https://person.zju.edu.cn/0011353" target="_blank" rel="noreferrer">Qiuguo Zhu</a><sup>1</sup>
+          </p>
+          <ol class="affiliations" aria-label="Author affiliations">
+            <li><sup>1</sup> Institute of Cyber-Systems and Control, Zhejiang University</li>
+            <li><sup>2</sup> Institute of Artificial Intelligence (TeleAI), China Telecom</li>
+            <li><sup>3</sup> Oxford Robotics Institute, University of Oxford</li>
+            <li><sup>4</sup> Department of Mechanical Engineering, Massachusetts Institute of Technology</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section abstract-section" id="abstract">
+        <div class="abstract-layout">
+          <aside class="abstract-label" aria-label="Abstract">
+            <p>Abstract</p>
+          </aside>
+          <div class="abstract-main">
+            <h2>
+              <span>Goal-initialized visual navigation</span>
+              <span>without streaming goal updates.</span>
+            </h2>
+            <div class="abstract-copy">
+              <p>
+                Learning-based visual navigation for legged robots typically
+                relies on continuous goal updates from hierarchical state
+                estimation to provide a persistent directional reference. This
+                reliance incurs additional sensory and computational overhead
+                and deviates from fully end-to-end mobile autonomy.
+                Furthermore, under partial observability, policies are prone to
+                learn myopic behaviors, easily becoming trapped in dead ends
+                and complex structural layouts.
+              </p>
+              <p>
+                To address these limitations, we investigate a goal-initialized
+                navigation setting, where the target is provided only once at
+                the beginning of an episode, requiring the robot to operate
+                based on intrinsic spatial memory without subsequent goal
+                updates from external modules. In this work, we propose
+                <span class="project-name">GUIDE</span>, a fully end-to-end
+                reinforcement learning framework designed to cultivate internal
+                directional awareness.
+              </p>
+              <p>
+                Specifically, GUIDE incorporates a spatial anchor predictor
+                that leverages multi-frequency proprioceptive history to extract
+                egomotion representations, thereby maintaining a persistent
+                long-horizon spatial context for navigation. Concurrently, it
+                utilizes raw depth streams to perceive local environmental
+                geometry. We evaluate the proposed framework across both
+                simulation and real-world scenarios on a quadruped robot.
+                Experiments show that GUIDE learns reliable egomotion and
+                directional awareness, enabling a fully end-to-end deployed
+                policy to safely navigate through dense clutter and structured
+                mazes without subsequent goal guidance or prior maps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section method-section overview-section" id="overview">
+        <div class="section-heading overview-heading">
+          <p class="kicker">Overview</p>
+          <h2>Goal-initialized navigation with learned directional awareness.</h2>
+        </div>
+        <div class="overview-copy">
+          <p>
+            <span class="project-name">GUIDE</span> studies end-to-end visual
+            navigation under a goal-initialized setting. The target is provided
+            only once at the beginning of an episode, and the deployed policy
+            must sustain directional awareness using onboard proprioception and
+            depth perception without streaming relative-goal updates.
+          </p>
+        </div>
+        <div class="overview-notes" aria-label="GUIDE overview">
+          <article class="overview-note">
+            <p class="note-label">Goal</p>
+            <p>
+              The robot receives target information only at initialization and
+              receives no external goal refresh during rollout.
+            </p>
+          </article>
+          <article class="overview-note">
+            <p class="note-label">Memory</p>
+            <p>
+              Multi-frequency proprioceptive history is used to learn egomotion
+              representations and persistent spatial context.
+            </p>
+          </article>
+          <article class="overview-note">
+            <p class="note-label">Perception</p>
+            <p>
+              Raw depth streams provide local geometric cues for obstacle
+              avoidance and navigation through cluttered or maze-like scenes.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section figure-section" id="pipeline">
+        <div class="section-heading compact">
+          <p class="kicker">Pipeline</p>
+          <h2>End-to-end visual navigation framework.</h2>
+        </div>
+        <div class="overview-copy overview-copy-secondary">
+          <p>
+            This section will present the GUIDE training and inference pipeline.
+            Replace this placeholder with the final framework figure and a short
+            caption once the non-blind assets are ready.
+          </p>
+        </div>
+      </section>
+
+      <section class="section method-section pipeline-one-section" id="simulation">
+        <div class="section-heading compact">
+          <p class="kicker">Simulation</p>
+          <h2>Simulation evaluations.</h2>
+        </div>
+        <div class="overview-copy overview-copy-secondary">
+          <p>
+            This section will present simulation benchmarks, ablations, and
+            qualitative rollouts for goal-initialized visual navigation in
+            cluttered and maze environments.
+          </p>
+          <p>
+            Placeholder content can be replaced with GUIDE figures, tables, or
+            videos after the final non-blind assets are ready.
+          </p>
+        </div>
+      </section>
+
+      <section class="section results-section" id="real-world">
+        <div class="section-heading compact">
+          <p class="kicker">Real-world</p>
+          <h2>Real-world deployments.</h2>
+        </div>
+        <div class="overview-copy overview-copy-secondary">
+          <p>
+            This section will present zero-shot real-world deployment videos and
+            observations from onboard sensing. Replace this placeholder with
+            real-world GUIDE results when the final assets are ready.
+          </p>
+        </div>
+      </section>
+
+    </main>
+    <script>
+      const header = document.querySelector('[data-header]');
+      function updateHeaderState() {
+        header?.classList.toggle('scrolled', window.scrollY > 12);
+      }
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+    </script>
+  </body>
+</html>
