@@ -297,6 +297,16 @@ h1 {
   vertical-align: super;
 }
 
+.author-notes {
+  width: min(980px, 100%);
+  margin: 10px auto 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.86rem, 1.18vw, 0.98rem);
+  line-height: 1.45;
+  text-align: center;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.72);
+}
+
 .institution-logos {
   display: flex;
   flex-wrap: wrap;
@@ -527,6 +537,7 @@ h1 {
 
   .authors,
   .affiliations,
+  .author-notes,
   .institution-logos,
   .publication-venue,
   .hero-actions {
@@ -699,26 +710,18 @@ h1 {
   width: 100%;
   max-width: none;
   color: var(--ink-2);
-  font-size: clamp(1rem, 1.1vw, 1.1rem);
-  line-height: 1.76;
+  font-size: clamp(1.02rem, 1.08vw, 1.12rem);
+  line-height: 1.72;
+  font-weight: 500;
   text-wrap: pretty;
 }
 
 .abstract-copy p {
-  margin: 0 0 1.05em;
+  margin: 0 0 1em;
 }
 
 .abstract-copy p:last-child {
   margin-bottom: 0;
-}
-
-.abstract-copy p:first-child::first-letter {
-  float: left;
-  margin: 0.08em 0.12em 0.01em 0;
-  color: var(--teal-2);
-  font-size: clamp(3.3rem, 4.2vw, 4.4rem);
-  line-height: 0.78;
-  font-weight: 400;
 }
 
 .figure-section {
@@ -1223,12 +1226,12 @@ select {
 }
 
 .deployment-grid.two-column {
-  grid-template-columns: repeat(2, minmax(0, 480px));
+  grid-template-columns: repeat(2, minmax(0, 540px));
 }
 
 .deployment-grid.single-column {
   grid-template-columns: minmax(0, 1fr);
-  width: min(620px, 100%);
+  width: min(760px, 100%);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1816,7 +1819,7 @@ select {
   }
 
   .deployment-grid.two-column {
-    grid-template-columns: minmax(0, 620px);
+    grid-template-columns: minmax(0, 760px);
     justify-content: center;
   }
 
@@ -1927,10 +1930,6 @@ select {
   .abstract-copy {
     font-size: 1.04rem;
     line-height: 1.68;
-  }
-
-  .abstract-copy p:first-child::first-letter {
-    font-size: 3.7rem;
   }
 
   .viewer-toolbar {
