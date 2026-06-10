@@ -1278,6 +1278,18 @@ select {
   text-align: center;
 }
 
+.simulation-section .deployment-grid.two-column {
+  grid-template-columns: repeat(2, minmax(0, 560px));
+}
+
+.simulation-section .deployment-video-frame {
+  aspect-ratio: 1 / 1;
+}
+
+.simulation-section .deployment-video-frame video {
+  object-fit: contain;
+}
+
 .gallery-section {
   background: var(--paper);
 }
