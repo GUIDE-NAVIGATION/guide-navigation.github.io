@@ -1742,6 +1742,7 @@ select {
 
 .citation-section {
   background: var(--paper);
+  padding-bottom: max(96px, 24vh);
 }
 
 .citation-note {
