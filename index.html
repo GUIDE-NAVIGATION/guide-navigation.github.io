@@ -102,37 +102,35 @@
           <div class="abstract-main">
             <div class="abstract-copy">
               <p>
-                Learning-based visual navigation for legged robots typically
-                relies on continuous goal updates from hierarchical state
-                estimation to provide a persistent directional reference. This
-                reliance incurs additional sensory and computational overhead
-                and deviates from fully end-to-end mobile autonomy.
-                Furthermore, under partial observability, policies are prone to
-                learn myopic behaviors, easily becoming trapped in dead ends
-                and complex structural layouts.
+                End-to-end reinforcement learning (RL) has shown strong potential
+                for legged robot navigation, yet existing approaches commonly rely
+                on continuously updated robot-to-goal states from external state
+                estimation modules, leaving part of the navigation problem outside
+                the learned policy. In this work, we seek to push the limits of
+                end-to-end sim-to-real RL navigation by investigating whether a
+                legged robot can internally maintain the spatial context required
+                for long-horizon navigation. To this end, we study goal-initialized
+                navigation, where the goal is provided only once at the beginning
+                of an episode, with no subsequent external relative-goal updates.
               </p>
               <p>
-                To address these limitations, we investigate a goal-initialized
-                navigation setting, where the target is provided only once at
-                the beginning of an episode, requiring the robot to operate
-                based on intrinsic spatial memory without subsequent goal
-                updates from external modules. In this work, we propose
-                <span class="project-name">GUIDE</span>, a fully end-to-end
-                reinforcement learning framework designed to cultivate internal
-                directional awareness.
+                We present <span class="project-name">GUIDE</span>, an end-to-end
+                RL framework that jointly learns navigation and internal directional
+                awareness from onboard observations. GUIDE leverages multi-frequency
+                proprioceptive history to capture egomotion and auxiliary
+                spatial-anchor prediction to maintain task-relevant spatial states,
+                while temporal depth observations provide local environmental
+                geometry. The navigation policy is trained entirely in simulation
+                and transferred zero-shot to the real world.
               </p>
               <p>
-                Specifically, GUIDE incorporates a spatial anchor predictor
-                that leverages multi-frequency proprioceptive history to extract
-                egomotion representations, thereby maintaining a persistent
-                long-horizon spatial context for navigation. Concurrently, it
-                utilizes raw depth streams to perceive local environmental
-                geometry. We evaluate the proposed framework across both
-                simulation and real-world scenarios on a quadruped robot.
-                Experiments show that GUIDE learns reliable egomotion and
-                directional awareness, enabling a fully end-to-end deployed
-                policy to safely navigate through dense clutter and structured
-                mazes without subsequent goal guidance or prior maps.
+                Across cluttered environments and structured mazes, GUIDE reliably
+                avoids obstacles, escapes dead ends, and reaches distant goals using
+                only onboard sensing. These results demonstrate that robust
+                sim-to-real legged navigation can be achieved without continuously
+                providing external robot-to-goal estimation, opening a promising
+                direction for future research on more self-contained end-to-end
+                navigation.
               </p>
             </div>
           </div>
@@ -188,7 +186,7 @@
       <section class="section figure-section" id="pipeline">
         <div class="section-heading compact">
           <p class="kicker">Pipeline</p>
-          <h2>End-to-end visual navigation framework.</h2>
+          <h2>End-to-end legged navigation framework.</h2>
         </div>
         <figure class="wide-figure">
           <img
@@ -196,15 +194,15 @@
             alt="Overview of the GUIDE framework."
           />
           <figcaption>
-            <strong>Pipeline of the GUIDE framework.</strong>
+            <strong>Overview of the GUIDE framework.</strong>
             Multi-frequency proprioceptive history is processed into
             proprioceptive tokens, which are supervised to predict spatial
-            anchor vectors that cultivate egomotion and directional awareness.
+            anchor vectors to cultivate egomotion and directional awareness.
             Concurrently, depth buffers are encoded and fused with these tokens
-            via cross-attention to yield spatial latents. Finally, the actor
+            via cross-attention to yield spatial latents. Finally, the Actor
             aggregates these representations with the latest proprioceptive
-            state to produce twist commands. All modules are jointly optimized
-            end-to-end from scratch.
+            state to produce the twist commands. All navigation modules are jointly
+            optimized end-to-end from scratch.
           </figcaption>
         </figure>
       </section>
@@ -248,7 +246,7 @@
             <h3>In-lab Evaluations</h3>
             <div class="deployment-grid two-column">
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(1, 6.5, 0)</h4>
+                <h4>Goal Pos:(1, 6.5, 0)</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/in_lab_01_maze_easy.mp4" type="video/mp4" />
@@ -257,7 +255,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(6.5, 6, 0)</h4>
+                <h4>Goal Pos:(6.5, 6, 0)</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/in_lab_02_maze_easy.mp4" type="video/mp4" />
@@ -266,7 +264,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Clutter Goal Pos:(6.5, 6.5, 0)</h4>
+                <h4>Goal Pos:(6.5, 6.5, 0)</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/in_lab_03_clutter_easy.mp4" type="video/mp4" />
@@ -275,7 +273,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Clutter Goal Pos:(6.5, 0, 0)</h4>
+                <h4>Goal Pos:(6.5, 0, 0)</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/in_lab_04_clutter_easy.mp4" type="video/mp4" />
@@ -284,7 +282,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(13, 0, 0) Wide View</h4>
+                <h4>Goal Pos:(13, 0, 0) Wide View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_01_view_01.mp4" type="video/mp4" />
@@ -293,7 +291,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(13, 0, 0) Side View</h4>
+                <h4>Goal Pos:(13, 0, 0) Side View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_01_view_02.mp4" type="video/mp4" />
@@ -302,7 +300,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(11.5, 0, 0) Wide View</h4>
+                <h4>Goal Pos:(11.5, 0, 0) Wide View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_02_view_01.mp4" type="video/mp4" />
@@ -311,7 +309,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(11.5, 0, 0) Side View</h4>
+                <h4>Goal Pos:(11.5, 0, 0) Side View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_02_view_02.mp4" type="video/mp4" />
@@ -320,7 +318,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(3, 1, 0) Wide View</h4>
+                <h4>Goal Pos:(3, 1, 0) Wide View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_03_view_01.mp4" type="video/mp4" />
@@ -329,7 +327,7 @@
                 <figcaption>&nbsp;</figcaption>
               </figure>
               <figure class="deployment-video">
-                <h4>Maze Goal Pos:(3, 1, 0) Side View</h4>
+                <h4>Goal Pos:(3, 1, 0) Side View</h4>
                 <div class="deployment-video-frame">
                   <video controls playsinline preload="metadata">
                     <source src="public/assets/videos/web/maze_demo_03_view_02.mp4" type="video/mp4" />
